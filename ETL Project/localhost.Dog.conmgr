@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.Dog"
+  DTS:DTSID="{565477E5-06C7-4ADB-895E-7DF4BAD3FBB0}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=Dog;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{565477E5-06C7-4ADB-895E-7DF4BAD3FBB0}localhost.Dog;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

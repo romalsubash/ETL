@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.Archive"
+  DTS:DTSID="{B13C1A7B-D4BD-46B2-B405-09BDDC78950E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost;Initial Catalog=Archive;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-2  Deleting_Aged_Rec-{B13C1A7B-D4BD-46B2-B405-09BDDC78950E}localhost.Archive;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

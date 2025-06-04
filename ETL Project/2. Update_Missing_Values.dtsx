@@ -1,0 +1,2344 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/20/2025 12:22:18 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ROMAL"
+  DTS:CreatorName="ROMAL\romal"
+  DTS:DTSID="{8D02F60C-8382-44A3-803A-5D4D582926BE}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{B637CC49-860D-4851-9008-43AF1E55DF61}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Updating Owners Missing Values"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{1D25FC35-5C17-4FD5-B61D-7256177747A9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Updating Owners Missing Values"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Updating Owners Missing Values\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion.Inputs[Data Conversion Input].Columns[Derived_ownerid]"
+                      cachedDataType="wstr"
+                      cachedLength="15"
+                      cachedName="Derived_ownerid"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Output].Columns[Derived_ownerid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid]"
+                      name="Copy of Derived_ownerid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Output].Columns[Derived_ownerid]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion 1.Inputs[Data Conversion Input].Columns[Derived_ownerid2]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="Derived_ownerid2"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Output].Columns[Derived_ownerid2]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="14"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid2]"
+                      name="Copy of Derived_ownerid2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Output].Columns[Derived_ownerid2]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column.Inputs[Derived Column Input].Columns[owner_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="owner_id"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Output].Columns[Derived_ownerid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="15"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Output].Columns[Derived_ownerid]"
+                      name="Derived_ownerid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEN]([TRIM](#{Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]})) == 3 ? ("000" + [TRIM](#{Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]})) : [TRIM](#{Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(TRIM(owner_id)) == 3 ? ("000" + TRIM(owner_id)) : TRIM(owner_id)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column 1.Inputs[Derived Column Input].Columns[owner_id]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="12"
+                      cachedName="owner_id"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Output].Columns[Derived_ownerid2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="14"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Output].Columns[Derived_ownerid2]"
+                      name="Derived_ownerid2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEN]([TRIM](#{Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]})) == 4 ? ("00" + [TRIM](#{Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]})) : [TRIM](#{Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(TRIM(owner_id)) == 4 ? ("00" + TRIM(owner_id)) : TRIM(owner_id)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Lookup Owner"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Owner"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dg_owners]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dg_owners]) [refTable]
+where [refTable].[owner_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="owner_id" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="name_key" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="dr_unique_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="address_key" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="financial_id" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="valuation_id" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="property_no" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="street_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="house_location" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title_initials" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="first_name" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="surname" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="first_name_2" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="surname_2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="letter_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_1" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_3" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_4" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="postcode" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="protection" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="remarks" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_validity" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_key" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_postcode" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_ignore" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_note" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phone" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="work_phone" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="mobile_phone" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="phone_source" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="fax_no" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="email_address" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="email_address_source" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="mail_type" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="email_all" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cash_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_trans_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="current_month" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_overdue1" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="months_overdue2" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="months_overdue3" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="balance" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_cash" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_other" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ytd_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_block" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pd_block" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_block" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_line" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="types" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="period_cash" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="period_other" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="last_year_ytd" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="start_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="change_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="initials" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag1" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag2" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag3" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag4" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="debt_collector_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="debt_status_flag" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="file_number" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="last_impound_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ndd_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ndd_time" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="other_ta_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="other_ta_id" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="delta" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_time" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Record_insert_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Updating Owners Missing Values\Lookup Owner.Connections[OleDbConnection]"
+                  connectionManagerID="{565477E5-06C7-4ADB-895E-7DF4BAD3FBB0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dog]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Lookup Owner.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Lookup Owner.Inputs[Lookup Input].Columns[Copy of Derived_ownerid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Copy of Derived_ownerid"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">owner_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Lookup Owner.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Lookup Owner.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Lookup Owner.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Lookup Owner2"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup Owner2"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[dg_owners]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[dg_owners]) [refTable]
+where [refTable].[owner_id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="owner_id" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="name_key" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="dr_unique_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="address_key" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="financial_id" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="valuation_id" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="property_no" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="street_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="house_location" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title_initials" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="first_name" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="surname" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="first_name_2" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="surname_2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="letter_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_1" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_2" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_3" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="address_4" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="postcode" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="protection" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="remarks" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="location" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_validity" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_key" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_postcode" dataType="DT_STR" length="6" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_ignore" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_note" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="paf_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="phone" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="work_phone" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="mobile_phone" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="phone_source" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="fax_no" dataType="DT_STR" length="25" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="email_address" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="email_address_source" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="mail_type" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="email_all" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="cash_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_trans_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="current_month" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_overdue1" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="months_overdue2" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="months_overdue3" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="balance" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_cash" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_other" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="ytd_sales" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="month_block" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="pd_block" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_block" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_line" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="types" dataType="DT_STR" length="40" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="period_cash" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="period_other" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="last_year_ytd" dataType="DT_NUMERIC" length="0" precision="11" scale="2" codePage="0"/&gt;&lt;referenceColumn name="start_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="change_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="initials" dataType="DT_STR" length="30" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag1" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag2" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag3" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="credit_flag4" dataType="DT_STR" length="1" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="debt_collector_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="debt_status_flag" dataType="DT_STR" length="2" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="file_number" dataType="DT_STR" length="15" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="last_impound_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ndd_date" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ndd_time" dataType="DT_NUMERIC" length="0" precision="4" scale="0" codePage="0"/&gt;&lt;referenceColumn name="other_ta_code" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="other_ta_id" dataType="DT_STR" length="12" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="delta" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="update_time" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Record_insert_date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid2]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Updating Owners Missing Values\Lookup Owner2.Connections[OleDbConnection]"
+                  connectionManagerID="{565477E5-06C7-4ADB-895E-7DF4BAD3FBB0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dog]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Lookup Owner2.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Lookup Owner2.Inputs[Lookup Input].Columns[Copy of Derived_ownerid2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Copy of Derived_ownerid2"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid2]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">owner_id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Lookup Owner2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Lookup Owner2.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Lookup Owner2.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Update Owner Table"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Owner Table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+UPDATE [dbo].[dg_owners]
+
+SET 
+
+[title]=?,
+[title_initials]=?,
+[initials]=?,
+[first_name]=?,
+[surname]=?,
+[address_1]=?,
+[address_2]=?,
+[address_3]=?,
+[location]=?,
+[house_location]=?,
+[phone]=?,
+[work_phone]=?,
+[mobile_phone]=?,
+[email_address]=?
+
+WHERE owner_id= ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Updating Owners Missing Values\Update Owner Table.Connections[OleDbConnection]"
+                  connectionManagerID="{565477E5-06C7-4ADB-895E-7DF4BAD3FBB0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[title_initials]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="title_initials"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title_initials]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[initials]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="initials"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[initials]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[surname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="surname"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[surname]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[address_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="address_1"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_1]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[address_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="address_2"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_2]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[address_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="address_3"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_3]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="location"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[location]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[house_location]"
+                      cachedDataType="i4"
+                      cachedName="house_location"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[house_location]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[work_phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="work_phone"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[work_phone]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[mobile_phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="mobile_phone"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[mobile_phone]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[email_address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email_address"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[email_address]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].Columns[Copy of Derived_ownerid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="Copy of Derived_ownerid"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Update Owner Table.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Update Owner Table.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Update Owner Table.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Update Owner Table.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Update Owner Table 1"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update Owner Table 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">
+UPDATE [dbo].[dg_owners]
+
+SET 
+
+[title]=?,
+[title_initials]=?,
+[initials]=?,
+[first_name]=?,
+[surname]=?,
+[address_1]=?,
+[address_2]=?,
+[address_3]=?,
+[location]=?,
+[house_location]=?,
+[phone]=?,
+[work_phone]=?,
+[mobile_phone]=?,
+[email_address]=?
+
+WHERE owner_id= ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Updating Owners Missing Values\Update Owner Table 1.Connections[OleDbConnection]"
+                  connectionManagerID="{565477E5-06C7-4ADB-895E-7DF4BAD3FBB0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost.Dog]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="15"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[title_initials]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="title_initials"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title_initials]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[initials]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="initials"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[initials]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[surname]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="surname"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[surname]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[address_1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="address_1"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_1]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[address_2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="address_2"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_2]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[address_3]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="address_3"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_3]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="40"
+                      cachedName="location"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[location]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[house_location]"
+                      cachedDataType="i4"
+                      cachedName="house_location"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[house_location]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="phone"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[phone]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[work_phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="work_phone"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[work_phone]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[mobile_phone]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="25"
+                      cachedName="mobile_phone"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[mobile_phone]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[email_address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="email_address"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[email_address]" />
+                    <inputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].Columns[Copy of Derived_ownerid2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="14"
+                      cachedName="Copy of Derived_ownerid2"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      lineageId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output].Columns[Copy of Derived_ownerid2]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_6]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_7]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_7">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_8]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="Param_8">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_9]"
+                      dataType="i4"
+                      name="Param_9">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_10]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_10">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_11]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_11">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_12]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="Param_12">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Param_13">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input].ExternalColumns[Param_14]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="Param_14">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Update Owner Table 1.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Update Owner Table 1.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Update Owner Table 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Update Owner Table 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Update Owner Table 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Updating Owners Missing Values\Updated Owners List from Business"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Updated Owners List from Business"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Connections[FlatFileConnection]"
+                  connectionManagerID="{EB7581C0-BC06-49A9-BACF-2263350FAF2D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Flat File Connection - Incomplete Owners]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[owner_id]"
+                      length="12"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[owner_id]"
+                      name="owner_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[title]"
+                      length="15"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title]"
+                      name="title"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title_initials]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[title_initials]"
+                      length="20"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[title_initials]"
+                      name="title_initials"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[initials]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[initials]"
+                      length="30"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[initials]"
+                      name="initials"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      length="30"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[surname]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[surname]"
+                      length="50"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[surname]"
+                      name="surname"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_1]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[address_1]"
+                      length="50"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_1]"
+                      name="address_1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_2]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[address_2]"
+                      length="50"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_2]"
+                      name="address_2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_3]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[address_3]"
+                      length="50"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[address_3]"
+                      name="address_3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      length="40"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[location]"
+                      name="location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[house_location]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[house_location]"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[house_location]"
+                      name="house_location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[phone]"
+                      length="25"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[phone]"
+                      name="phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[work_phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[work_phone]"
+                      length="25"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[work_phone]"
+                      name="work_phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[mobile_phone]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[mobile_phone]"
+                      length="25"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[mobile_phone]"
+                      name="mobile_phone"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[email_address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[email_address]"
+                      length="50"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[email_address]"
+                      name="email_address"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[Data_Issue]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[Data_Issue]"
+                      length="300"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].Columns[Data_Issue]"
+                      name="Data_Issue"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[owner_id]"
+                      codePage="1252"
+                      dataType="str"
+                      length="12"
+                      name="owner_id" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="15"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[title_initials]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="title_initials" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[initials]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="initials" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[surname]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="surname" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[address_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="address_1" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[address_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="address_2" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[address_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="address_3" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="40"
+                      name="location" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[house_location]"
+                      dataType="i4"
+                      name="house_location" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="phone" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[work_phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="work_phone" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[mobile_phone]"
+                      codePage="1252"
+                      dataType="str"
+                      length="25"
+                      name="mobile_phone" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[email_address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="email_address" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[Data_Issue]"
+                      dataType="nText"
+                      name="Data_Issue" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[Derived_location]"
+                      dataType="wstr"
+                      length="80"
+                      name="Derived_location" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[Derived_mobile]"
+                      dataType="wstr"
+                      length="50"
+                      name="Derived_mobile" />
+                    <externalMetadataColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output].ExternalColumns[Copy of Data_Issue]"
+                      dataType="wstr"
+                      length="300"
+                      name="Copy of Data_Issue" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Data Conversion Output]"
+              endId="Package\Updating Owners Missing Values\Lookup Owner.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Updating Owners Missing Values\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Data Conversion Output1]"
+              endId="Package\Updating Owners Missing Values\Lookup Owner2.Inputs[Lookup Input]"
+              name="Data Conversion Output"
+              startId="Package\Updating Owners Missing Values\Data Conversion 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Derived Column Output]"
+              endId="Package\Updating Owners Missing Values\Data Conversion.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Updating Owners Missing Values\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Derived Column Output1]"
+              endId="Package\Updating Owners Missing Values\Data Conversion 1.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\Updating Owners Missing Values\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Flat File Source Output]"
+              endId="Package\Updating Owners Missing Values\Derived Column.Inputs[Derived Column Input]"
+              name="Flat File Source Output"
+              startId="Package\Updating Owners Missing Values\Updated Owners List from Business.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Lookup Match Output]"
+              endId="Package\Updating Owners Missing Values\Update Owner Table.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Lookup Match Output1]"
+              endId="Package\Updating Owners Missing Values\Update Owner Table 1.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Updating Owners Missing Values\Lookup Owner2.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Updating Owners Missing Values.Paths[Lookup No Match Output]"
+              endId="Package\Updating Owners Missing Values\Derived Column 1.Inputs[Derived Column Input]"
+              name="Lookup No Match Output"
+              startId="Package\Updating Owners Missing Values\Lookup Owner.Outputs[Lookup No Match Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="231.2,41.6"
+          Id="Package\Updating Owners Missing Values"
+          TopLeft="209.166655238305,170.733332146075" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Updating Owners Missing Values">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Updating Owners Missing Values\Derived Column 1"
+          TopLeft="412.566657287214,400.63333341168" />
+        <NodeLayout
+          Size="152,41.6"
+          Id="Package\Updating Owners Missing Values\Lookup Owner2"
+          TopLeft="414.866657423808,543.166667166882" />
+        <NodeLayout
+          Size="164,41.6"
+          Id="Package\Updating Owners Missing Values\Data Conversion 1"
+          TopLeft="408.033324136006,471.033333628641" />
+        <NodeLayout
+          Size="244,41.6"
+          Id="Package\Updating Owners Missing Values\Updated Owners List from Business"
+          TopLeft="200.533333287802,80.0333328150378" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Updating Owners Missing Values\Lookup Owner"
+          TopLeft="250.566666575604,310.3" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Updating Owners Missing Values\Update Owner Table 1"
+          TopLeft="407.833323862818,617.900000687042" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Updating Owners Missing Values\Derived Column"
+          TopLeft="243.633333424396,156.499999656479" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Updating Owners Missing Values\Update Owner Table"
+          TopLeft="62.1666635705367,395.43333344784" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Updating Owners Missing Values\Data Conversion"
+          TopLeft="247.033333151208,232.966666497919" />
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Lookup No Match Output]"
+          TopLeft="346.299999908937,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="147.066657378277,48.7333334116802"
+              Start="0,0"
+              End="147.066657378277,41.2333334116802">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.8111594521396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.8111594521396"
+                    Point2="0,19.8111594521396"
+                    Point3="4,19.8111594521396" />
+                  <mssgle:LineSegment
+                    End="143.066657378277,19.8111594521396" />
+                  <mssgle:CubicBezierSegment
+                    Point1="143.066657378277,19.8111594521396"
+                    Point2="147.066657378277,19.8111594521396"
+                    Point3="147.066657378277,23.8111594521396" />
+                  <mssgle:LineSegment
+                    End="147.066657378277,41.2333334116802" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="17.7269419703884,24.8111594521396,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Lookup Match Output1]"
+          TopLeft="492.949990643313,584.766667166881">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.1333335201605"
+              Start="0,0"
+              End="0,25.6333335201605">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6333335201605" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.01197926008024,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Lookup Match Output]"
+          TopLeft="300.433333242271,351.9">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-151.066669671734,43.5333334478403"
+              Start="0,0"
+              End="-151.066669671734,36.0333334478403">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.6972464233612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.6972464233612"
+                    Point2="0,17.6972464233612"
+                    Point3="-4,17.6972464233612" />
+                  <mssgle:LineSegment
+                    End="-147.066669671734,17.6972464233612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-147.066669671734,17.6972464233612"
+                    Point2="-151.066669671734,17.6972464233612"
+                    Point3="-151.066669671734,21.6972464233612" />
+                  <mssgle:LineSegment
+                    End="-151.066669671734,36.0333334478403" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-123.724721554617,22.6972464233612,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Flat File Source Output]"
+          TopLeft="321.283333356099,121.633332815038">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8666668414406"
+              Start="0,0"
+              End="0,27.3666668414406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3666668414406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Derived Column Output1]"
+          TopLeft="491.69999071161,442.23333341168">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8000002169609"
+              Start="0,0"
+              End="0,21.3000002169609">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3000002169609" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Derived Column Output]"
+          TopLeft="322.533333287802,198.099999656479">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.8666668414406"
+              Start="0,0"
+              End="0,27.3666668414406">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.3666668414406" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Data Conversion Output1]"
+          TopLeft="490.449990779907,512.633333628641">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.5333335382409"
+              Start="0,0"
+              End="0,23.0333335382409">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.0333335382409" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Updating Owners Missing Values.Paths[Data Conversion Output]"
+          TopLeft="324.199999863406,274.566666497919">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.7333335020807"
+              Start="0,0"
+              End="0,28.2333335020807">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.2333335020807" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Updating Owners Missing Values\Lookup Owner2">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dg_owners]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Updating Owners Missing Values\Lookup Owner">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[dg_owners]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
